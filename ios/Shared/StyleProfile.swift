@@ -43,7 +43,10 @@ struct StyleProfile: Codable {
     // Closing patterns (last 1-3 words of messages)
     var closerFrequency: [String: Int] = [:]
 
-    static let targetMessageCount = 10 // TODO: restore to 500 after testing
+    /// Where the voice is at its best.
+    static let targetMessageCount = 200
+    /// Enough for a first draft of the prompt.
+    static let minimumForPrompt = 50
 
     var progress: Double {
         min(Double(messageCount) / Double(Self.targetMessageCount), 1.0)

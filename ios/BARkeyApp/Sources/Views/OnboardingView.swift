@@ -1,4 +1,6 @@
 import SwiftUI
+import Combine
+import KeyboardKit
 
 struct OnboardingView: View {
     @EnvironmentObject var appState: AppState
@@ -51,7 +53,7 @@ struct OnboardingView: View {
                 .font(Theme.titleFont)
                 .foregroundColor(Theme.textPrimary)
 
-            Text("Learn how you write.\nIn 500 messages, you'll have your voice — forever.")
+            Text("Learn how you write.\nIn a couple hundred texts, you'll have your voice — forever.")
                 .font(Theme.bodyFont)
                 .foregroundColor(Theme.textSecondary)
                 .multilineTextAlignment(.center)
@@ -91,22 +93,20 @@ struct OnboardingView: View {
 
             VStack(alignment: .leading, spacing: 16) {
                 privacyRow(icon: "checkmark.circle.fill", color: .green,
-                    text: "Word frequency counts")
+                    text: "Messages you send, saved on this iPhone so your prompt can quote your real voice")
                 privacyRow(icon: "checkmark.circle.fill", color: .green,
-                    text: "Punctuation patterns")
+                    text: "Emails, links and long numbers blanked out before saving")
                 privacyRow(icon: "checkmark.circle.fill", color: .green,
-                    text: "Message length averages")
-                privacyRow(icon: "checkmark.circle.fill", color: .green,
-                    text: "Tone markers (emoji, slang rates)")
+                    text: "Every saved message visible to you, deletable one by one or all at once")
 
                 Divider().padding(.vertical, 4)
 
                 privacyRow(icon: "xmark.circle.fill", color: .red,
-                    text: "Your actual messages — never stored")
+                    text: "Search bars, logins, codes, card numbers — skipped")
                 privacyRow(icon: "xmark.circle.fill", color: .red,
-                    text: "Who you message — we don't know")
+                    text: "Who you message — never recorded")
                 privacyRow(icon: "xmark.circle.fill", color: .red,
-                    text: "Any data sent to servers — there are none")
+                    text: "Servers, accounts, analytics — there are none")
             }
             .padding(.horizontal, 32)
 
@@ -146,9 +146,12 @@ struct OnboardingView: View {
                 setupRow(number: "3", title: "Enable BARkey",
                     detail: "Toggle BARkey on")
                 setupRow(number: "4", title: "Allow Full Access",
-                    detail: "Required so the keyboard can build your style profile. All processing stays on your device.")
+                    detail: "Required so the keyboard can hand your messages to the BARkey app. Everything stays on this iPhone.")
             }
             .padding(.horizontal, 24)
+
+            SetupChecklist(status: appState.keyboardStatus)
+                .padding(.horizontal, 24)
 
             Button {
                 // Deep link to keyboard settings
@@ -214,9 +217,9 @@ struct OnboardingView: View {
 
             // Mini progress bar preview
             VStack(spacing: 8) {
-                ProgressView(value: 0, total: 500)
+                ProgressView(value: 0, total: Double(StyleProfile.targetMessageCount))
                     .tint(Theme.ember)
-                Text("0 / 500 messages")
+                Text("0 / \(StyleProfile.targetMessageCount) messages")
                     .font(Theme.captionFont)
                     .foregroundColor(Theme.textSecondary)
             }
@@ -270,6 +273,34 @@ struct OnboardingView: View {
                     .font(Theme.captionFont)
                     .foregroundColor(Theme.textSecondary)
             }
+        }
+    }
+}
+
+/// Live check of the two settings the keyboard needs.
+struct SetupChecklist: View {
+    @ObservedObject var status: KeyboardStatusContext
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            row("BARkey keyboard added", done: status.isKeyboardEnabled)
+            row("Full Access allowed", done: status.isFullAccessEnabled)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(Theme.smoke.opacity(0.5))
+        .cornerRadius(12)
+        .onReceive(timer) { _ in status.refresh() }
+    }
+
+    private func row(_ text: String, done: Bool) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: done ? "checkmark.circle.fill" : "circle")
+                .foregroundColor(done ? .green : Theme.ash)
+            Text(text)
+                .font(.system(size: 14, weight: .medium))
+                .foregroundColor(Theme.textPrimary)
         }
     }
 }

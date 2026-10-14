@@ -42,12 +42,27 @@ class AppleAutocompleteService: AutocompleteService {
             return [Autocomplete.Suggestion(text: "I", type: .autocorrect)]
         }
 
-        // 2. Contraction dictionary
+        // 2. Contraction dictionary. Words that are also real words ("were", "its",
+        // "well") are offered, never forced.
         if let contraction = contractions[lower] {
+            let type: Autocomplete.SuggestionType = ambiguousContractions.contains(lower) ? .regular : .autocorrect
             return [
                 Autocomplete.Suggestion(text: currentWord, type: .regular),
-                Autocomplete.Suggestion(text: contraction, type: .autocorrect),
+                Autocomplete.Suggestion(text: contraction, type: type),
             ]
+        }
+
+        // Never "fix" how the person actually talks: slang, laughs, words they
+        // taught the keyboard, and capitalized names mid-sentence pass through.
+        if Self.protectedWords.contains(lower) || hasLearnedWord(currentWord) || isMidSentenceName(currentWord, in: text) {
+            let completions = (textChecker.completions(
+                forPartialWordRange: NSRange(location: (text as NSString).length - (currentWord as NSString).length,
+                                             length: (currentWord as NSString).length),
+                in: text,
+                language: language
+            ) ?? []).filter { $0.lowercased() != lower }
+            return [Autocomplete.Suggestion(text: currentWord, type: .regular)]
+                + completions.prefix(2).map { Autocomplete.Suggestion(text: $0, type: .regular) }
         }
 
         // 3. Common typos dictionary
@@ -207,6 +222,29 @@ class AppleAutocompleteService: AutocompleteService {
         defaults?.set(_learnedWords, forKey: AppleAutocompleteService.learnedKey)
     }
 
+    /// True for a capitalized word that does not start a sentence, e.g. "Priya" or "Wegmans".
+    private func isMidSentenceName(_ word: String, in text: String) -> Bool {
+        guard word.first?.isUppercase == true, word.count > 1, word != "I" else { return false }
+        let before = text.dropLast(word.count).trimmingCharacters(in: .whitespaces)
+        guard let last = before.last else { return false }
+        return !".!?\n".contains(last)
+    }
+
+    static let protectedWords: Set<String> = [
+        "gonna", "wanna", "gotta", "idk", "tbh", "nah", "yea", "yeah", "ya", "ur", "rn",
+        "omg", "btw", "lmk", "ngl", "imo", "imho", "smh", "bruh", "nope", "yep", "kinda",
+        "sorta", "dunno", "cuz", "tho", "thx", "pls", "plz", "bc", "def", "prob", "obvi",
+        "lowkey", "highkey", "fr", "ong", "haha", "hahaha", "hahahaha", "lol", "lmao",
+        "lmfao", "rofl", "ok", "okk", "kk", "k", "ty", "tysm", "np", "nvm", "wyd", "hbu",
+        "irl", "fomo", "goat", "sus", "bet", "oof", "ugh", "hmm", "mhm", "yay", "woo",
+        "omw", "ttyl", "brb", "gn", "gm", "jk", "afaik", "iirc", "fwiw", "eta", "asap",
+    ]
+
+    /// Contractions whose un-apostrophed form is also an English word.
+    private let ambiguousContractions: Set<String> = [
+        "were", "well", "wed", "hell", "shell", "shed", "hed", "its", "ill", "id", "lets", "cant", "wont",
+    ]
+
     // MARK: - Contraction dictionary
 
     private let contractions: [String: String] = [
@@ -238,7 +276,7 @@ class AppleAutocompleteService: AutocompleteService {
         "adn": "and", "nad": "and", "anf": "and",
         "taht": "that", "htat": "that",
         "wiht": "with", "iwth": "with", "wih": "with",
-        "fro": "for", "ofr": "for",
+        "ofr": "for",
         "yuo": "you", "yoi": "you",
         "jsut": "just", "juts": "just",
         "knwo": "know", "konw": "know",
@@ -249,7 +287,7 @@ class AppleAutocompleteService: AutocompleteService {
         "becuase": "because", "becasue": "because", "beacuse": "because",
         "recieve": "receive",
         "occured": "occurred", "occuring": "occurring",
-        "definately": "definitely", "definatly": "definitely", "defiantly": "definitely",
+        "definately": "definitely", "definatly": "definitely",
         "seperate": "separate", "seperately": "separately",
         "untill": "until", "unitl": "until",
         "wich": "which", "whcih": "which",

@@ -1,12 +1,25 @@
 import SwiftUI
 
-/// Free tier demo: paste any text and see what it would sound like in your voice.
-/// Shows the style in action without giving away the full prompt.
+/// Runs the voice prompt on Apple's on-device model: rewrite a message in your
+/// voice, or draft the reply you'd send.
 struct RewriteView: View {
     @EnvironmentObject var appState: AppState
     @Environment(\.dismiss) var dismiss
+
+    enum Mode: String, CaseIterable, Identifiable {
+        case rewrite = "Rewrite it"
+        case reply = "Reply to it"
+        var id: String { rawValue }
+    }
+
+    @State private var mode: Mode = .rewrite
     @State private var inputText = ""
-    @State private var showingResult = false
+    @State private var result = ""
+    @State private var isWorking = false
+    @State private var errorText: String?
+    @FocusState private var editorFocused: Bool
+
+    private var status: VoiceModel.Status { VoiceModel.status }
 
     var body: some View {
         NavigationStack {
@@ -14,7 +27,7 @@ struct RewriteView: View {
                 Theme.background.ignoresSafeArea()
 
                 ScrollView {
-                    VStack(spacing: 24) {
+                    VStack(spacing: 20) {
                         VStack(spacing: 8) {
                             Image(systemName: "wand.and.stars")
                                 .font(.system(size: 36))
@@ -22,69 +35,110 @@ struct RewriteView: View {
                             Text("Try Your Voice")
                                 .font(Theme.titleFont)
                                 .foregroundColor(Theme.textPrimary)
-                            Text("Paste any text below. We'll show you what it sounds like rewritten in your style.")
+                            Text("Runs on this iPhone with Apple Intelligence. Nothing is sent anywhere.")
                                 .font(Theme.captionFont)
                                 .foregroundColor(Theme.textSecondary)
                                 .multilineTextAlignment(.center)
                         }
 
-                        // Input
+                        if case .unavailable(let reason) = status {
+                            Text(reason)
+                                .font(.system(size: 14))
+                                .foregroundColor(Theme.textPrimary)
+                                .padding(14)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Theme.smoke)
+                                .cornerRadius(12)
+                        }
+
+                        Picker("Mode", selection: $mode) {
+                            ForEach(Mode.allCases) { Text($0.rawValue).tag($0) }
+                        }
+                        .pickerStyle(.segmented)
+
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Original text")
+                            Text(mode == .rewrite ? "A message to rewrite in your voice" : "A message someone sent you")
                                 .font(Theme.captionFont)
                                 .foregroundColor(Theme.textSecondary)
 
                             TextEditor(text: $inputText)
                                 .font(Theme.bodyFont)
-                                .frame(minHeight: 120)
-                                .padding(12)
+                                .focused($editorFocused)
+                                .frame(minHeight: 110)
+                                .padding(10)
+                                .scrollContentBackground(.hidden)
                                 .background(Theme.cardBackground)
                                 .cornerRadius(12)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Theme.smoke, lineWidth: 1)
-                                )
+                                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Theme.smoke, lineWidth: 1))
                         }
 
-                        // Style summary
-                        if showingResult {
+                        Button(action: run) {
+                            HStack {
+                                if isWorking { ProgressView().tint(.white) }
+                                Text(isWorking ? "Writing…" : (mode == .rewrite ? "Rewrite in My Voice" : "Write My Reply"))
+                            }
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .background(canRun ? Theme.accent : Theme.ash)
+                            .cornerRadius(14)
+                        }
+                        .disabled(!canRun)
+
+                        if let errorText {
+                            Text(errorText)
+                                .font(Theme.captionFont)
+                                .foregroundColor(.red)
+                        }
+
+                        if !result.isEmpty {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("Your voice would say it like...")
+                                Text("In your voice")
                                     .font(Theme.captionFont)
                                     .foregroundColor(Theme.textSecondary)
-
-                                Text(rewritePreview)
+                                Text(result)
                                     .font(Theme.bodyFont)
                                     .foregroundColor(Theme.textPrimary)
+                                    .textSelection(.enabled)
                                     .padding(16)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .background(Theme.ember.opacity(0.08))
                                     .cornerRadius(12)
+                                HStack {
+                                    Button {
+                                        UIPasteboard.general.string = result
+                                    } label: {
+                                        Label("Copy", systemImage: "doc.on.doc")
+                                    }
+                                    Spacer()
+                                    Button(action: run) {
+                                        Label("Try again", systemImage: "arrow.clockwise")
+                                    }
+                                }
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(Theme.accent)
 
-                                Text("This is a preview based on your style stats. With the full prompt + an LLM, the rewrite will be much more accurate.")
+                                Text("Apple's on-device model is small, so this is a rough take. Your exported prompt does better in ChatGPT or Claude.")
                                     .font(.system(size: 12))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
-
-                        // Action
-                        Button {
-                            showingResult = true
-                        } label: {
-                            Text("Rewrite in My Voice")
-                                .font(.system(size: 17, weight: .semibold))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 16)
-                                .background(inputText.isEmpty ? Theme.ash : Theme.accent)
-                                .cornerRadius(14)
-                        }
-                        .disabled(inputText.isEmpty)
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 16)
                     .padding(.bottom, 40)
                 }
+                .scrollDismissesKeyboard(.interactively)
+            }
+            .onAppear {
+                #if DEBUG
+                let args = ProcessInfo.processInfo.arguments
+                if let i = args.firstIndex(of: "-tryText"), i + 1 < args.count {
+                    inputText = args[i + 1]
+                    run()
+                }
+                #endif
             }
             .navigationTitle("Try Your Voice")
             .navigationBarTitleDisplayMode(.inline)
@@ -97,32 +151,28 @@ struct RewriteView: View {
         }
     }
 
-    /// Simple on-device rewrite preview using style stats.
-    /// This is NOT the full LLM rewrite — just a demonstration of the style analysis.
-    private var rewritePreview: String {
-        let profile = appState.profile
-        var notes: [String] = []
+    private var canRun: Bool {
+        status == .ready && !isWorking && !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 
-        if profile.avgWordsPerMessage < 8 {
-            notes.append("Your version would be shorter — you average \(Int(profile.avgWordsPerMessage)) words per message.")
+    private func run() {
+        guard canRun else { return }
+        editorFocused = false
+        isWorking = true
+        errorText = nil
+        let text = inputText
+        let prompt = appState.onDevicePrompt()
+        let mode = mode
+        Task {
+            do {
+                let output = mode == .rewrite
+                    ? try await VoiceModel.rewrite(text, voicePrompt: prompt)
+                    : try await VoiceModel.reply(to: text, voicePrompt: prompt)
+                result = output
+            } catch {
+                errorText = VoiceModel.friendlyMessage(for: error)
+            }
+            isWorking = false
         }
-        if profile.exclamationRate < 0.05 {
-            notes.append("You'd drop the exclamation marks — you use them in only \(Int(profile.exclamationRate * 100))% of messages.")
-        }
-        if profile.emojiRate < 0.05 {
-            notes.append("No emoji — you almost never use them (\(Int(profile.emojiRate * 100))%).")
-        }
-        if profile.slangRate > 0.2 {
-            notes.append("You'd use more casual language — \(Int(profile.slangRate * 100))% of your messages have slang.")
-        }
-        if let opener = profile.topOpeners.first {
-            notes.append("You'd probably start with \"\(opener.0)\" — your most common opener.")
-        }
-
-        if notes.isEmpty {
-            notes.append("Your style profile is still building. More messages = more accurate preview.")
-        }
-
-        return notes.joined(separator: "\n\n")
     }
 }

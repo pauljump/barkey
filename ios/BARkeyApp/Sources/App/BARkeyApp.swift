@@ -3,7 +3,14 @@ import KeyboardKit
 
 @main
 struct BARkeyApp: App {
-    @StateObject private var appState = AppState()
+    @StateObject private var appState: AppState
+
+    init() {
+        #if DEBUG
+        DemoData.seedIfRequested()
+        #endif
+        _appState = StateObject(wrappedValue: AppState())
+    }
 
     var body: some Scene {
         WindowGroup {

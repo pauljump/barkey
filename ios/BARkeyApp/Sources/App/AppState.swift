@@ -1,4 +1,5 @@
 import SwiftUI
+import KeyboardKit
 
 @MainActor
 class AppState: ObservableObject {
@@ -6,6 +7,12 @@ class AppState: ObservableObject {
     @Published var profile: StyleProfile = StyleProfile()
     @Published var hasCompletedOnboarding: Bool
     @Published var hasExported: Bool
+    @Published var isPaused: Bool {
+        didSet { CaptureSettings.isPaused = isPaused }
+    }
+
+    /// Whether the keyboard is added in Settings and has Full Access.
+    let keyboardStatus = KeyboardStatusContext(bundleId: "com.barkey.app.keyboard")
 
     private let onboardingKey = "has_completed_onboarding"
     private let exportedKey = "has_exported"
@@ -16,6 +23,12 @@ class AppState: ObservableObject {
         min(Double(totalMessages) / Double(StyleProfile.targetMessageCount), 1.0)
     }
 
+    /// Enough messages for a first prompt.
+    var canExport: Bool {
+        totalMessages >= StyleProfile.minimumForPrompt
+    }
+
+    /// The voice is at its best.
     var isReady: Bool {
         totalMessages >= StyleProfile.targetMessageCount
     }
@@ -23,6 +36,7 @@ class AppState: ObservableObject {
     init() {
         self.hasCompletedOnboarding = UserDefaults.standard.bool(forKey: onboardingKey)
         self.hasExported = UserDefaults.standard.bool(forKey: exportedKey)
+        self.isPaused = CaptureSettings.isPaused
         self.messages = MessageStore.loadMessages()
         self.profile = Self.buildProfile(from: self.messages)
     }
@@ -33,7 +47,10 @@ class AppState: ObservableObject {
     }
 
     func refresh() {
-        messages = MessageStore.loadMessages()
+        keyboardStatus.refresh()
+        let latest = MessageStore.loadMessages()
+        guard latest != messages else { return }
+        messages = latest
         profile = Self.buildProfile(from: messages)
     }
 
@@ -44,9 +61,22 @@ class AppState: ObservableObject {
         profile = Self.buildProfile(from: messages)
     }
 
-    /// Generate the exportable voice prompt from raw messages.
+    /// The exportable voice prompt, built from real messages.
     func generatePrompt() -> String {
         PromptGenerator.generateFromMessages(messages, profile: profile)
+    }
+
+    /// A shorter prompt that fits Apple's on-device model.
+    func onDevicePrompt() -> String {
+        PromptGenerator.generateFromMessages(messages, profile: profile, exampleCount: VoiceModel.onDeviceExampleCount)
+    }
+
+    /// Real messages that are not used as examples in the on-device prompt,
+    /// for the blind test.
+    func heldOutMessages(count: Int) -> [String] {
+        let used = Set(PromptGenerator.selectRepresentativeMessages(from: messages, count: VoiceModel.onDeviceExampleCount))
+        let pool = messages.filter { !used.contains($0) && $0.split(separator: " ").count >= 3 }
+        return Array(pool.shuffled().prefix(count))
     }
 
     func markExported() {
@@ -54,13 +84,8 @@ class AppState: ObservableObject {
         UserDefaults.standard.set(true, forKey: exportedKey)
     }
 
-    /// Delete all raw messages after export.
-    func burnMessages() {
-        MessageStore.deleteAll()
-        messages = []
-    }
-
-    func resetProfile() {
+    /// Delete every captured message and start over.
+    func burnEverything() {
         MessageStore.deleteAll()
         ProfileStore.reset()
         messages = []

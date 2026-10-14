@@ -150,13 +150,13 @@ enum PromptGenerator {
 
     /// Generate a voice prompt using real message examples (few-shot) + statistical summary.
     /// This is the actual exported product — much more accurate than stats alone.
-    static func generateFromMessages(_ messages: [String], profile: StyleProfile) -> String {
+    static func generateFromMessages(_ messages: [String], profile: StyleProfile, exampleCount: Int = 40) -> String {
         var lines: [String] = []
 
         lines.append("Write all responses in this person's exact writing style. Study the examples below carefully and match their voice precisely.\n")
 
         // Select representative examples — varied lengths, different patterns
-        let examples = selectRepresentativeMessages(from: messages, count: 40)
+        let examples = selectRepresentativeMessages(from: messages, count: exampleCount)
 
         lines.append("## Real Examples of Their Writing")
         lines.append("These are actual messages from this person. Match the tone, vocabulary, sentence structure, capitalization, punctuation, and formatting exactly.\n")
@@ -213,13 +213,15 @@ enum PromptGenerator {
         lines.append("- Match their capitalization style (lowercase starts, proper caps, etc.)")
         lines.append("- Match their typical message length — don't write paragraphs if they write sentences")
         lines.append("- Use their vocabulary and phrasing, not formal/generic alternatives")
+        lines.append("- Never copy an example word for word; write new text in the same voice")
+        lines.append("- Placeholders like [email], [link] and [number] stand in for details that were removed for privacy")
 
         return lines.joined(separator: "\n")
     }
 
     /// Select a diverse set of representative messages.
     /// Picks across different length buckets and avoids near-duplicates.
-    private static func selectRepresentativeMessages(from messages: [String], count: Int) -> [String] {
+    static func selectRepresentativeMessages(from messages: [String], count: Int) -> [String] {
         guard !messages.isEmpty else { return [] }
 
         // Deduplicate (case-insensitive)

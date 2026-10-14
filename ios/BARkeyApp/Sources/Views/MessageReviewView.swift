@@ -55,7 +55,7 @@ struct MessageReviewView: View {
                         }
                         .listStyle(.plain)
 
-                        if appState.isReady {
+                        if appState.canExport {
                             Button { showingExport = true } label: {
                                 HStack {
                                     Image(systemName: "wand.and.stars")

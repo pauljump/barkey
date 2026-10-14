@@ -15,7 +15,7 @@ struct PricingView: View {
                             Text("$9.99")
                                 .font(.system(size: 48, weight: .black, design: .rounded))
                                 .foregroundColor(Theme.charcoal)
-                            Text("One time. Not a subscription.")
+                            Text("Planned price, one time. Free during the TestFlight beta.")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(Theme.ash)
                         }
@@ -91,7 +91,7 @@ struct PricingView: View {
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundColor(Theme.ash)
 
-                            Text("Your messages never leave your phone during capture. When you export, your prompt is generated on-device. The hosted shortlink is the only thing that touches our servers — and you control what's on it.")
+                            Text("Your messages never leave your phone. The prompt is built on-device, and it only goes where you copy or share it. BARkey has no server.")
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundColor(Theme.ash)
                         }
