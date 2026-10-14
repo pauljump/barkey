@@ -2,9 +2,10 @@
 # Archive BARkey and upload it to App Store Connect (TestFlight).
 # Run from a logged-in macOS session so the keychain can ask for access to the
 # "iPhone Distribution" key; choose "Always Allow" once and later runs are headless.
-set -euo pipefail
+set -eo pipefail
 cd "$(dirname "$0")"
 set -a; . "$HOME/.secrets/monorepo.env"; set +a
+set -u
 KEY="$HOME/.appstoreconnect/private_keys/AuthKey_${ASC_KEY_ID}.p8"
 OUT=/tmp/barkey-ship
 rm -rf "$OUT" && mkdir -p "$OUT"
