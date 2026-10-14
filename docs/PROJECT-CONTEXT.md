@@ -137,32 +137,23 @@ xcodebuild build -project BARkey.xcodeproj -scheme BARkey \
 ## Current State
 <!-- 🔓 AUTO-UPDATE every session -->
 
-**Status:** building
-**Last updated:** 2026-03-15
-**iOS build:** 16 on TestFlight (target temporarily lowered to 10 for testing)
-**API:** `https://barkey-api-988719556625.us-east1.run.app` (Cloud Run, live)
-**What just shipped:**
-- Custom AppleAutocompleteService: UITextChecker + 50 contractions + 70 typo corrections + 150 bigram next-word predictions + retroactive word fixing
-- Message capture via text proxy polling (works across all apps, not just iMessage)
-- Raw message storage in MessageStore (App Group) — messages kept until user exports + burns
-- Few-shot prompt generation: 40 real message examples + statistical summary (replaced stats-only V1)
-- Message review screen: truncated previews for transparency, swipe to delete, no full text copying
-- Shortlink API: POST /v1/prompts → get hosted URL, GET /:slug → branded web page with copy button
-- Redesigned home screen: concept explainer, pricing upfront ($9.99), burn philosophy, transparency card
-- Dedicated pricing page: value prop, free vs paid tiers, FAQ, anti-app philosophy
-- App icon, theme system, onboarding walkthrough
-- TestFlight builds 1-16 shipped during session
-- GitHub issues: #26 (conversation import), #27 (KeyboardKit Pro eval)
-**What's next:**
-- Wire StoreKit 2 to gate export behind $9.99 IAP
-- Restore targetMessageCount to 500 after testing
-- Test full export + shortlink flow on device
-- Improve autocorrect quality (add more dictionary entries as Paul reports gaps)
-- Custom domain for shortlinks (barkey.app instead of Cloud Run URL)
-- Conversation import (#26): WhatsApp export parsing to supplement keyboard capture
-**What's blocking:** StoreKit not wired yet — export currently ungated. Autocorrect quality is usable but noticeably below Apple's native keyboard (no ML-based predictions).
+**Status:** TestFlight beta
+**Last updated:** 2026-10-14
+**iOS build:** 1.0 (20)
+**API:** retired. The Cloud Run shortlink service no longer exists; the app has no server.
+
+**2026-10-14 pass (build 20):**
+- Capture fixed: sent = same field empties with no recent backspace; drafts, field switches and pre-existing text ignored; search/URL/login/code/card/address fields skipped; Pause switch
+- `CaptureFilter` blanks emails, links, long numbers before storage; 1,000-message cap; dedupe
+- Autocorrect no longer forces ambiguous contractions (were/its/well/ill/id/…) and leaves slang, learned words, mid-sentence names alone; removed the duplicate retroactive fixer
+- Shortlink upload removed; export = Copy / Share; privacy copy made true (onboarding said messages were never stored — they were)
+- Try Your Voice (rewrite / reply) and Spot the Fake (blind test) on Apple's on-device FoundationModels
+- Live keyboard + Full Access checklist; first prompt at 50 messages, best at 200
+- Beta is free; StoreKit still not wired
+
+**What's next:** device test of capture in iMessage/WhatsApp; App Review guideline 4.4.1 (keyboards may only collect activity to improve the keyboard) is the open risk for public release; StoreKit.
 
 ## Success Metrics
 <!-- OWNER CONTEXT — keep success criteria evidence-based and task-aligned -->
 
-(Paul to define — suggested: blind test where someone can't tell if Paul or the LLM wrote a message)
+Blind test: the person can't tell their real messages from ones written with their prompt (Spot the Fake in-app).
