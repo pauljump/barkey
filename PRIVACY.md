@@ -20,6 +20,6 @@ nothing is sent to Apple or anyone else for those features.
 Deleting the app deletes everything it saved.
 
 **Full Access.** iOS requires "Allow Full Access" for a keyboard to share data with its own app.
-BARkey uses it only for that; it makes no network requests.
+BARkey uses it only for that; BARkey's own code makes no network requests.
 
 Questions: open an issue at https://github.com/pauljump/barkey/issues

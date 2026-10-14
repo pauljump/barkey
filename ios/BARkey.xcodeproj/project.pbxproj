@@ -364,7 +364,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BARkeyKeyboard/BARkeyKeyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BARkeyKeyboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BARkey;
@@ -452,7 +452,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BARkeyKeyboard/BARkeyKeyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BARkeyKeyboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BARkey;
@@ -477,7 +477,7 @@
 				CODE_SIGN_ENTITLEMENTS = BARkeyApp/BARkey.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BARkeyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,7 +498,7 @@
 				CODE_SIGN_ENTITLEMENTS = BARkeyApp/BARkey.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BARkeyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
