@@ -1,7 +1,8 @@
 #!/bin/bash
-# Archive BARkey and upload it to App Store Connect (TestFlight).
-# Run from a logged-in macOS session so the keychain can ask for access to the
-# "iPhone Distribution" key; choose "Always Allow" once and later runs are headless.
+# Archive BARkey and upload it to App Store Connect (TestFlight). Runs headless.
+# Export uses Apple's cloud signing through the API key: the dedicated signing
+# keychain is dropped from the search list for the export (and restored after),
+# so no local distribution key, keychain unlock or GUI prompt is needed.
 set -eo pipefail
 cd "$(dirname "$0")"
 set -a; . "$HOME/.secrets/monorepo.env"; set +a
@@ -25,6 +26,11 @@ AUTH=(-allowProvisioningUpdates -authenticationKeyPath "$KEY" -authenticationKey
 xcodegen generate -q
 xcodebuild archive -project BARkey.xcodeproj -scheme BARkey -configuration Release \
   -destination 'generic/platform=iOS' -archivePath "$OUT/BARkey.xcarchive" "${AUTH[@]}"
+SAVED_KEYCHAINS=()
+while IFS= read -r kc; do SAVED_KEYCHAINS+=("$(echo "$kc" | tr -d ' "')"); done < <(security list-keychains -d user)
+restore_keychains() { security list-keychains -d user -s "${SAVED_KEYCHAINS[@]}"; }
+trap restore_keychains EXIT
+security list-keychains -d user -s "$HOME/Library/Keychains/login.keychain-db"
 xcodebuild -exportArchive -archivePath "$OUT/BARkey.xcarchive" -exportPath "$OUT/export" \
   -exportOptionsPlist "$OUT/ExportOptions.plist" "${AUTH[@]}"
 echo "Uploaded. Apple takes ~10-30 min to process before it shows in TestFlight."
