@@ -1,0 +1,105 @@
+name: BARkey
+options:
+  bundleIdPrefix: com.barkey
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    TARGETED_DEVICE_FAMILY: "1"
+    DEVELOPMENT_TEAM: 99US464DK4
+
+packages:
+  KeyboardKit:
+    url: https://github.com/KeyboardKit/KeyboardKit.git
+    from: "10.3.0"
+
+targets:
+  BARkey:
+    type: application
+    platform: iOS
+    sources:
+      - path: BARkeyApp/Sources
+      - path: Shared
+    resources:
+      - path: BARkeyApp/Sources/App/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.barkey.app
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "17"
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: BARkeyApp/Info.plist
+    entitlements:
+      path: BARkeyApp/BARkey.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.barkey.app
+    info:
+      path: BARkeyApp/Info.plist
+      properties:
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleIconName: AppIcon
+        UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        ITSAppUsesNonExemptEncryption: false
+        NSMicrophoneUsageDescription: "BARkey does not use the microphone. This permission is required by an included keyboard framework."
+    dependencies:
+      - target: BARkeyKeyboard
+        embed: true
+      - package: KeyboardKit
+
+  BARkeyKeyboard:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: BARkeyKeyboard
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.barkey.app.keyboard
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "17"
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: BARkey
+        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.keyboard-service
+        SWIFT_EMIT_LOC_STRINGS: YES
+    entitlements:
+      path: BARkeyKeyboard/BARkeyKeyboard.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.barkey.app
+    info:
+      path: BARkeyKeyboard/Info.plist
+      properties:
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleDisplayName: BARkey
+        NSExtension:
+          NSExtensionAttributes:
+            IsASCIICapable: false
+            PrefersRightToLeft: false
+            PrimaryLanguage: en-US
+            RequestsOpenAccess: true
+          NSExtensionPointIdentifier: com.apple.keyboard-service
+          NSExtensionPrincipalClass: "$(PRODUCT_MODULE_NAME).KeyboardViewController"
+    dependencies:
+      - package: KeyboardKit
+
+schemes:
+  BARkey:
+    build:
+      targets:
+        BARkey: all
+        BARkeyKeyboard: all
+    run:
+      config: Debug

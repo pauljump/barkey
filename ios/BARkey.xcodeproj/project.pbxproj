@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02450BE08D88FF9CEF7C1896 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8F6324DABAC105D07FAB5 /* OnboardingView.swift */; };
+		072A9E977DC26EE2C1A7B6BF /* KeyboardKit in Frameworks */ = {isa = PBXBuildFile; productRef = A0119E71CE09B9FFB667A29D /* KeyboardKit */; };
+		1C18201DADCEF6C264EB52DE /* BARkeyKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2425164A60D64BF3C0DB1F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02A43E0D50CD15DCA54ABAB /* Assets.xcassets */; };
+		3B2C7107A66ECC163B183225 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */; };
+		3CC6216271369A6C5754F9D0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A680972D708580BE61D6 /* AppState.swift */; };
+		4304A5706FC2B47108882BF8 /* PromptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5444BB82343484A7DB3888D /* PromptGenerator.swift */; };
+		480E9C8BB20578A33FB9E406 /* StyleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414CD38E4B2D73B6E05E8C9 /* StyleProfile.swift */; };
+		49C7CC8C91147C44637EA69C /* AppleAutocompleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009756483AA20DEF489BF84B /* AppleAutocompleteService.swift */; };
+		5576753296C805A4999765E1 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */; };
+		56510F8202D91B78C2C80324 /* BARkeyKeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */; };
+		5F411335D1CBFC11EA3ABA02 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6A13592041CBCA0DBC4AE /* Theme.swift */; };
+		6117D9A104202A71B09A5BC1 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */; };
+		631FCC49EFEED08C2B54A766 /* BARkeyKeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */; };
+		657B8FD33681805BF99CE539 /* StyleAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBF1BBAC271C825E24DB8D /* StyleAnalyzer.swift */; };
+		666BA87BAF6AD425FC0B782B /* PromptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5444BB82343484A7DB3888D /* PromptGenerator.swift */; };
+		6DF6721A8512384099EB17F8 /* KeyboardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 956F677CF913659BD85B2A8B /* KeyboardKit */; };
+		79D5D7D731D48808FD098BF7 /* BARkeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34142313CEA4816641200E15 /* BARkeyApp.swift */; };
+		7A481CE1101C228D05467C64 /* RewriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F23F015D63F86FA299D5E5D /* RewriteView.swift */; };
+		89E3E81B7F66347DA68070D5 /* StyleAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBF1BBAC271C825E24DB8D /* StyleAnalyzer.swift */; };
+		917EBA3608969FA39F2ACEE2 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */; };
+		9493609077E1F8F0C0E8932E /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18499B1CA34AC6CDD0278F /* PricingView.swift */; };
+		A3B4733CB9777791AD32207A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872AB10BA0AD7830CA06B9D2 /* APIClient.swift */; };
+		AD149AB76E0A07AAF980F4B4 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510C265299CF9C0878987FF /* KeyboardViewController.swift */; };
+		CDBF8A286F1D806620D39E93 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E7AD59BB593F41F931E3A4 /* ExportView.swift */; };
+		E1A686AEC8953466BB74FF35 /* StyleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414CD38E4B2D73B6E05E8C9 /* StyleProfile.swift */; };
+		E72B35AA52A172E889AEB38E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4668B08587770098F7328C49 /* HomeView.swift */; };
+		FFB1751C73FAF2D0F90311F5 /* MessageReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA31B8B49E9A4D2D2BC0480 /* MessageReviewView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3117103783BFFC323A27ECE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213E7CBCAF6469300316D53B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D389A866CE813BC221784A17;
+			remoteInfo = BARkeyKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6581B36848C5FDEC0ED24ED0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1C18201DADCEF6C264EB52DE /* BARkeyKeyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		009756483AA20DEF489BF84B /* AppleAutocompleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAutocompleteService.swift; sourceTree = "<group>"; };
+		0CF6A13592041CBCA0DBC4AE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0FA31B8B49E9A4D2D2BC0480 /* MessageReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReviewView.swift; sourceTree = "<group>"; };
+		21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
+		34142313CEA4816641200E15 /* BARkeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BARkeyApp.swift; sourceTree = "<group>"; };
+		4414CD38E4B2D73B6E05E8C9 /* StyleProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleProfile.swift; sourceTree = "<group>"; };
+		45BBF1BBAC271C825E24DB8D /* StyleAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleAnalyzer.swift; sourceTree = "<group>"; };
+		4668B08587770098F7328C49 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4C16A680972D708580BE61D6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		63B8F6324DABAC105D07FAB5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		6F23F015D63F86FA299D5E5D /* RewriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewriteView.swift; sourceTree = "<group>"; };
+		7299B096D8995084AD58C011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		872AB10BA0AD7830CA06B9D2 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BARkeyKeyboardApp.swift; sourceTree = "<group>"; };
+		8D18499B1CA34AC6CDD0278F /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
+		ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
+		B02A43E0D50CD15DCA54ABAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BARkeyKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B712386AEFC0E5B5C88D281A /* BARkeyKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BARkeyKeyboard.entitlements; sourceTree = "<group>"; };
+		BD4A42B3C1CAB2B52E33261C /* BARkey.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BARkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E7AD59BB593F41F931E3A4 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		D5444BB82343484A7DB3888D /* PromptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptGenerator.swift; sourceTree = "<group>"; };
+		E510C265299CF9C0878987FF /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1278635B687BB36CB7B7C407 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				072A9E977DC26EE2C1A7B6BF /* KeyboardKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FA077DF6F51F61C3FD65BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DF6721A8512384099EB17F8 /* KeyboardKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22EBF8D50958F6420EC6519A = {
+			isa = PBXGroup;
+			children = (
+				CBD84626543AC5981BF425EC /* BARkeyApp */,
+				DD0165C90E87F6E5BA664BAB /* BARkeyKeyboard */,
+				65E4FAA0FE693E486C68CC56 /* Shared */,
+				8D59B1C505FD61303CE06D30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DB2463CE3B3E6671ECEB731 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0E7AD59BB593F41F931E3A4 /* ExportView.swift */,
+				4668B08587770098F7328C49 /* HomeView.swift */,
+				0FA31B8B49E9A4D2D2BC0480 /* MessageReviewView.swift */,
+				63B8F6324DABAC105D07FAB5 /* OnboardingView.swift */,
+				8D18499B1CA34AC6CDD0278F /* PricingView.swift */,
+				6F23F015D63F86FA299D5E5D /* RewriteView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		437F0A6F00A88CAE8BBF87D4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				872AB10BA0AD7830CA06B9D2 /* APIClient.swift */,
+				4C16A680972D708580BE61D6 /* AppState.swift */,
+				B02A43E0D50CD15DCA54ABAB /* Assets.xcassets */,
+				34142313CEA4816641200E15 /* BARkeyApp.swift */,
+				0CF6A13592041CBCA0DBC4AE /* Theme.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		65E4FAA0FE693E486C68CC56 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */,
+				21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */,
+				ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */,
+				D5444BB82343484A7DB3888D /* PromptGenerator.swift */,
+				45BBF1BBAC271C825E24DB8D /* StyleAnalyzer.swift */,
+				4414CD38E4B2D73B6E05E8C9 /* StyleProfile.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8D59B1C505FD61303CE06D30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD4A42B3C1CAB2B52E33261C /* BARkey.app */,
+				B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEC0DFBB64CBA2D2CC9A1675 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				437F0A6F00A88CAE8BBF87D4 /* App */,
+				3DB2463CE3B3E6671ECEB731 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CBD84626543AC5981BF425EC /* BARkeyApp */ = {
+			isa = PBXGroup;
+			children = (
+				AEC0DFBB64CBA2D2CC9A1675 /* Sources */,
+			);
+			path = BARkeyApp;
+			sourceTree = "<group>";
+		};
+		DD0165C90E87F6E5BA664BAB /* BARkeyKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				009756483AA20DEF489BF84B /* AppleAutocompleteService.swift */,
+				B712386AEFC0E5B5C88D281A /* BARkeyKeyboard.entitlements */,
+				7299B096D8995084AD58C011 /* Info.plist */,
+				E510C265299CF9C0878987FF /* KeyboardViewController.swift */,
+			);
+			path = BARkeyKeyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B555AC685D4B7111C45333C /* BARkey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8907B941E99FDB067EE6442 /* Build configuration list for PBXNativeTarget "BARkey" */;
+			buildPhases = (
+				0905F5A95211235956F294CF /* Sources */,
+				0AD685F5DF00A0996B2DF634 /* Resources */,
+				30FA077DF6F51F61C3FD65BB /* Frameworks */,
+				6581B36848C5FDEC0ED24ED0 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4FF2EDFB6493A9829E018C0 /* PBXTargetDependency */,
+			);
+			name = BARkey;
+			packageProductDependencies = (
+				956F677CF913659BD85B2A8B /* KeyboardKit */,
+			);
+			productName = BARkey;
+			productReference = BD4A42B3C1CAB2B52E33261C /* BARkey.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D389A866CE813BC221784A17 /* BARkeyKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46896E249DD6C8B8079ED29F /* Build configuration list for PBXNativeTarget "BARkeyKeyboard" */;
+			buildPhases = (
+				13181C5AE98CDF30713230F3 /* Sources */,
+				1278635B687BB36CB7B7C407 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BARkeyKeyboard;
+			packageProductDependencies = (
+				A0119E71CE09B9FFB667A29D /* KeyboardKit */,
+			);
+			productName = BARkeyKeyboard;
+			productReference = B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		213E7CBCAF6469300316D53B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					2B555AC685D4B7111C45333C = {
+						DevelopmentTeam = 99US464DK4;
+						ProvisioningStyle = Automatic;
+					};
+					D389A866CE813BC221784A17 = {
+						DevelopmentTeam = 99US464DK4;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 67D8BBF35234CC1B81A4EB32 /* Build configuration list for PBXProject "BARkey" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 22EBF8D50958F6420EC6519A;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DBBDC15FAA386DC530FEB3FA /* XCRemoteSwiftPackageReference "KeyboardKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8D59B1C505FD61303CE06D30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B555AC685D4B7111C45333C /* BARkey */,
+				D389A866CE813BC221784A17 /* BARkeyKeyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AD685F5DF00A0996B2DF634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2425164A60D64BF3C0DB1F9E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0905F5A95211235956F294CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B4733CB9777791AD32207A /* APIClient.swift in Sources */,
+				3CC6216271369A6C5754F9D0 /* AppState.swift in Sources */,
+				79D5D7D731D48808FD098BF7 /* BARkeyApp.swift in Sources */,
+				56510F8202D91B78C2C80324 /* BARkeyKeyboardApp.swift in Sources */,
+				CDBF8A286F1D806620D39E93 /* ExportView.swift in Sources */,
+				E72B35AA52A172E889AEB38E /* HomeView.swift in Sources */,
+				FFB1751C73FAF2D0F90311F5 /* MessageReviewView.swift in Sources */,
+				5576753296C805A4999765E1 /* MessageStore.swift in Sources */,
+				02450BE08D88FF9CEF7C1896 /* OnboardingView.swift in Sources */,
+				9493609077E1F8F0C0E8932E /* PricingView.swift in Sources */,
+				3B2C7107A66ECC163B183225 /* ProfileStore.swift in Sources */,
+				4304A5706FC2B47108882BF8 /* PromptGenerator.swift in Sources */,
+				7A481CE1101C228D05467C64 /* RewriteView.swift in Sources */,
+				657B8FD33681805BF99CE539 /* StyleAnalyzer.swift in Sources */,
+				480E9C8BB20578A33FB9E406 /* StyleProfile.swift in Sources */,
+				5F411335D1CBFC11EA3ABA02 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13181C5AE98CDF30713230F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C7CC8C91147C44637EA69C /* AppleAutocompleteService.swift in Sources */,
+				631FCC49EFEED08C2B54A766 /* BARkeyKeyboardApp.swift in Sources */,
+				AD149AB76E0A07AAF980F4B4 /* KeyboardViewController.swift in Sources */,
+				917EBA3608969FA39F2ACEE2 /* MessageStore.swift in Sources */,
+				6117D9A104202A71B09A5BC1 /* ProfileStore.swift in Sources */,
+				666BA87BAF6AD425FC0B782B /* PromptGenerator.swift in Sources */,
+				89E3E81B7F66347DA68070D5 /* StyleAnalyzer.swift in Sources */,
+				E1A686AEC8953466BB74FF35 /* StyleProfile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4FF2EDFB6493A9829E018C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D389A866CE813BC221784A17 /* BARkeyKeyboard */;
+			targetProxy = A3117103783BFFC323A27ECE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		098B406932D7877EBC7B7620 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BARkeyKeyboard/BARkeyKeyboard.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BARkeyKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BARkey;
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.keyboard-service";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barkey.app.keyboard;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		39D49D97E0608C43E5B7F44F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 99US464DK4;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5ED4B4F4A361D2E5F0343997 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BARkeyKeyboard/BARkeyKeyboard.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BARkeyKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BARkey;
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.keyboard-service";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barkey.app.keyboard;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9F2B710A346C27F68FB4AF11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BARkeyApp/BARkey.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BARkeyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barkey.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0367F601520504C55358F71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BARkeyApp/BARkey.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BARkeyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barkey.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F8DCE6227836AD5F2F6D05C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 99US464DK4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46896E249DD6C8B8079ED29F /* Build configuration list for PBXNativeTarget "BARkeyKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ED4B4F4A361D2E5F0343997 /* Debug */,
+				098B406932D7877EBC7B7620 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		67D8BBF35234CC1B81A4EB32 /* Build configuration list for PBXProject "BARkey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39D49D97E0608C43E5B7F44F /* Debug */,
+				F8DCE6227836AD5F2F6D05C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C8907B941E99FDB067EE6442 /* Build configuration list for PBXNativeTarget "BARkey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F2B710A346C27F68FB4AF11 /* Debug */,
+				A0367F601520504C55358F71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBBDC15FAA386DC530FEB3FA /* XCRemoteSwiftPackageReference "KeyboardKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KeyboardKit/KeyboardKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		956F677CF913659BD85B2A8B /* KeyboardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBBDC15FAA386DC530FEB3FA /* XCRemoteSwiftPackageReference "KeyboardKit" */;
+			productName = KeyboardKit;
+		};
+		A0119E71CE09B9FFB667A29D /* KeyboardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBBDC15FAA386DC530FEB3FA /* XCRemoteSwiftPackageReference "KeyboardKit" */;
+			productName = KeyboardKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 213E7CBCAF6469300316D53B /* Project object */;
+}
