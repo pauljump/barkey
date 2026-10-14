@@ -10,7 +10,7 @@ status: "captured"
 # Jam: proof of human writing — what to build and where's the money
 
 > **Crew:** Andrew Chen (achen), Ben Thompson (benthomp), Paul Graham (pg) · **2026-10-14** · autonomous
-> **Framing:** Trigger was Turrii (turrii.com, ex not-slop.com, by Verifiably Human / github.com/Verhum): a Chrome extension that records keystrokes while you write LinkedIn/Substack posts, scores them on a server, and issues a "Verified Human" proof page; $2.99–5.99/mo; ~8 installs. Brief: `_factory/brain/research/proof-of-human-writing/LANDSCAPE.md`. Question: is a keyboard-native version built on BARkey's capture layer worth doing, and what's the efficient version?
+> **Framing:** Trigger was Turrii (turrii.com, ex not-slop.com, by Verifiably Human / github.com/Verhum): a Chrome extension that records keystrokes while you write LinkedIn/Substack posts, scores them on a server, and issues a "Verified Human" proof page; $2.99–5.99/mo; ~8 installs. Brief: [`research/proof-of-human-writing-landscape.md`](../research/proof-of-human-writing-landscape.md). Question: is a keyboard-native version built on BARkey's capture layer worth doing, and what's the efficient version?
 
 ## Synthesis
 
