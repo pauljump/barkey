@@ -139,7 +139,7 @@ xcodebuild build -project BARkey.xcodeproj -scheme BARkey \
 
 **Status:** TestFlight beta
 **Last updated:** 2026-10-14
-**iOS build:** 1.0 (20)
+**iOS build:** 1.0 (21)
 **API:** retired. The Cloud Run shortlink service no longer exists; the app has no server.
 
 **2026-10-14 pass (build 20):**
