@@ -100,11 +100,27 @@ targets:
       - package: KeyboardKit
       - package: BARkeyEngine
 
+  BARkeyUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: BARkeyUITests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.barkey.app.uitests
+        TEST_TARGET_NAME: BARkey
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: BARkey
+
 schemes:
   BARkey:
     build:
       targets:
         BARkey: all
         BARkeyKeyboard: all
+        BARkeyUITests: [test]
     run:
       config: Debug
+    test:
+      targets: [BARkeyUITests]

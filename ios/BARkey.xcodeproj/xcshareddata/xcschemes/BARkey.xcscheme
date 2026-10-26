@@ -35,6 +35,20 @@
                ReferencedContainer = "container:BARkey.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "28271956D68DBDE02D34B5C8"
+               BuildableName = "BARkeyUITests.xctest"
+               BlueprintName = "BARkeyUITests"
+               ReferencedContainer = "container:BARkey.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -53,7 +67,20 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "28271956D68DBDE02D34B5C8"
+               BuildableName = "BARkeyUITests.xctest"
+               BlueprintName = "BARkeyUITests"
+               ReferencedContainer = "container:BARkey.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

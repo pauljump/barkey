@@ -25,6 +25,7 @@
 		5576753296C805A4999765E1 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */; };
 		56510F8202D91B78C2C80324 /* BARkeyKeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */; };
 		57831AE0CAA2033D8D1EA82A /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F161F3B5D7856F6B66E74E /* DemoData.swift */; };
+		5DD07494A6EA8C2D46A3F95E /* KeyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B780F8728EFE3D3C7B3E8CA5 /* KeyboardUITests.swift */; };
 		5F411335D1CBFC11EA3ABA02 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6A13592041CBCA0DBC4AE /* Theme.swift */; };
 		6117D9A104202A71B09A5BC1 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */; };
 		631FCC49EFEED08C2B54A766 /* BARkeyKeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */; };
@@ -52,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		22F15F448D53F6E234194AC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213E7CBCAF6469300316D53B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B555AC685D4B7111C45333C;
+			remoteInfo = BARkey;
+		};
 		A3117103783BFFC323A27ECE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 213E7CBCAF6469300316D53B /* Project object */;
@@ -80,6 +88,7 @@
 		0FA31B8B49E9A4D2D2BC0480 /* MessageReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReviewView.swift; sourceTree = "<group>"; };
 		21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
 		255CDC6F686834298352D31A /* BARkeyAutocompleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BARkeyAutocompleteService.swift; sourceTree = "<group>"; };
+		2A4D118683189C2097B0CED0 /* BARkeyUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BARkeyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF2822421871DEB7A97EA7E /* KeptWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeptWords.swift; sourceTree = "<group>"; };
 		34142313CEA4816641200E15 /* BARkeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BARkeyApp.swift; sourceTree = "<group>"; };
 		36659B7A234D581162F9E2BF /* VoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModel.swift; sourceTree = "<group>"; };
@@ -102,6 +111,7 @@
 		B02A43E0D50CD15DCA54ABAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BARkeyKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B712386AEFC0E5B5C88D281A /* BARkeyKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BARkeyKeyboard.entitlements; sourceTree = "<group>"; };
+		B780F8728EFE3D3C7B3E8CA5 /* KeyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardUITests.swift; sourceTree = "<group>"; };
 		BD4A42B3C1CAB2B52E33261C /* BARkey.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BARkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04E28F7F34614A9A91CDB9B /* BARkeyEngine */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BARkeyEngine; path = Packages/BARkeyEngine; sourceTree = SOURCE_ROOT; };
 		C0E7AD59BB593F41F931E3A4 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 			children = (
 				CBD84626543AC5981BF425EC /* BARkeyApp */,
 				DD0165C90E87F6E5BA664BAB /* BARkeyKeyboard */,
+				52B629CF816333A6B186FAB7 /* BARkeyUITests */,
 				BCD18D312A506028ACC1D3A7 /* Packages */,
 				65E4FAA0FE693E486C68CC56 /* Shared */,
 				8D59B1C505FD61303CE06D30 /* Products */,
@@ -172,6 +183,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		52B629CF816333A6B186FAB7 /* BARkeyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B780F8728EFE3D3C7B3E8CA5 /* KeyboardUITests.swift */,
+			);
+			path = BARkeyUITests;
+			sourceTree = "<group>";
+		};
 		65E4FAA0FE693E486C68CC56 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +213,7 @@
 			children = (
 				BD4A42B3C1CAB2B52E33261C /* BARkey.app */,
 				B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */,
+				2A4D118683189C2097B0CED0 /* BARkeyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +257,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		28271956D68DBDE02D34B5C8 /* BARkeyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A2C49B146B41B37EA109D0 /* Build configuration list for PBXNativeTarget "BARkeyUITests" */;
+			buildPhases = (
+				77D6F7D74798E7440D0E1C8F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8996CB9056E5FACC932D3CE1 /* PBXTargetDependency */,
+			);
+			name = BARkeyUITests;
+			packageProductDependencies = (
+			);
+			productName = BARkeyUITests;
+			productReference = 2A4D118683189C2097B0CED0 /* BARkeyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		2B555AC685D4B7111C45333C /* BARkey */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8907B941E99FDB067EE6442 /* Build configuration list for PBXNativeTarget "BARkey" */;
@@ -289,6 +327,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					28271956D68DBDE02D34B5C8 = {
+						DevelopmentTeam = 99US464DK4;
+						TestTargetID = 2B555AC685D4B7111C45333C;
+					};
 					2B555AC685D4B7111C45333C = {
 						DevelopmentTeam = 99US464DK4;
 						ProvisioningStyle = Automatic;
@@ -319,6 +361,7 @@
 			targets = (
 				2B555AC685D4B7111C45333C /* BARkey */,
 				D389A866CE813BC221784A17 /* BARkeyKeyboard */,
+				28271956D68DBDE02D34B5C8 /* BARkeyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -385,9 +428,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		77D6F7D74798E7440D0E1C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DD07494A6EA8C2D46A3F95E /* KeyboardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8996CB9056E5FACC932D3CE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B555AC685D4B7111C45333C /* BARkey */;
+			targetProxy = 22F15F448D53F6E234194AC5 /* PBXContainerItemProxy */;
+		};
 		C4FF2EDFB6493A9829E018C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D389A866CE813BC221784A17 /* BARkeyKeyboard */;
@@ -485,6 +541,23 @@
 			};
 			name = Debug;
 		};
+		462E550A8E7CBBC24D6B4DCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.barkey.app.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BARkey;
+			};
+			name = Release;
+		};
 		5ED4B4F4A361D2E5F0343997 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -505,6 +578,23 @@
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85671E31593290355A797735 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.barkey.app.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BARkey;
 			};
 			name = Debug;
 		};
@@ -612,6 +702,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		00A2C49B146B41B37EA109D0 /* Build configuration list for PBXNativeTarget "BARkeyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85671E31593290355A797735 /* Debug */,
+				462E550A8E7CBBC24D6B4DCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		46896E249DD6C8B8079ED29F /* Build configuration list for PBXNativeTarget "BARkeyKeyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
