@@ -14,6 +14,17 @@ class AppState: ObservableObject {
     /// Whether the keyboard is added in Settings and has Full Access.
     let keyboardStatus = KeyboardStatusContext(bundleId: "com.barkey.app.keyboard")
 
+    /// Your voice online for assistants (Claude, ChatGPT, Muse).
+    let voiceLink = VoiceLink()
+
+    /// The word the keyboard turns into your voice brief.
+    @Published var voiceShortcut: String = VoiceBrief.shortcut {
+        didSet { VoiceBrief.shortcut = voiceShortcut; if voiceShortcut != VoiceBrief.shortcut { voiceShortcut = VoiceBrief.shortcut } }
+    }
+    @Published var voiceShortcutEnabled: Bool = VoiceBrief.isEnabled {
+        didSet { VoiceBrief.isEnabled = voiceShortcutEnabled }
+    }
+
     private let onboardingKey = "has_completed_onboarding"
     private let exportedKey = "has_exported"
 
@@ -39,6 +50,25 @@ class AppState: ObservableObject {
         self.isPaused = CaptureSettings.isPaused
         self.messages = MessageStore.loadMessages()
         self.profile = Self.buildProfile(from: self.messages)
+        updateBrief()
+    }
+
+    /// Keeps the keyboard's brief current and, if the voice is online, republishes after enough new messages.
+    private func updateBrief() {
+        if canExport {
+            VoiceBrief.brief = PromptGenerator.generateBrief(messages, profile: profile)
+        } else {
+            VoiceBrief.clear()
+        }
+        if voiceLink.isPublished, totalMessages - voiceLink.publishedMessageCount >= 25 {
+            let prompt = generatePrompt(), count = totalMessages
+            Task { await voiceLink.publish(prompt: prompt, messageCount: count) }
+        }
+    }
+
+    /// Put the current prompt online (or refresh it) for assistants.
+    func publishVoice() async {
+        await voiceLink.publish(prompt: generatePrompt(), messageCount: totalMessages)
     }
 
     func completeOnboarding() {
@@ -52,6 +82,7 @@ class AppState: ObservableObject {
         guard latest != messages else { return }
         messages = latest
         profile = Self.buildProfile(from: messages)
+        updateBrief()
     }
 
     func deleteMessage(at index: Int) {
@@ -59,6 +90,7 @@ class AppState: ObservableObject {
         MessageStore.deleteMessage(at: index)
         messages.remove(at: index)
         profile = Self.buildProfile(from: messages)
+        updateBrief()
     }
 
     /// The exportable voice prompt, built from real messages.
@@ -88,10 +120,13 @@ class AppState: ObservableObject {
     func burnEverything() {
         MessageStore.deleteAll()
         ProfileStore.reset()
+        KeptWords.removeAll()
+        VoiceBrief.clear()
         messages = []
         profile = StyleProfile()
         hasExported = false
         UserDefaults.standard.set(false, forKey: exportedKey)
+        if voiceLink.credentials != nil { Task { await voiceLink.burn() } }
     }
 
     /// Build a StyleProfile from raw messages (for UI stats display).

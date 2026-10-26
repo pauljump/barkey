@@ -69,7 +69,7 @@ Two components:
 <!-- 🔓 AUTO-UPDATE -->
 
 - Swift / SwiftUI (containing app)
-- KeyboardKit 10.3+ (SPM — renders native-looking keyboard, handles key layout/gestures/feedback)
+- KeyboardKit 10.9 free (SPM binary — keyboard surface, gestures, feedback). Autocorrect is BARkeyEngine, not KeyboardKit's.
 - App Groups (shared data between keyboard extension and containing app)
 - StoreKit 2 ($9.99 export, $2.99 refresh) — not yet wired
 - V2: LLM-powered prompt generation (Claude or GPT-4o via lightweight API)
@@ -137,21 +137,31 @@ xcodebuild build -project BARkey.xcodeproj -scheme BARkey \
 ## Current State
 <!-- 🔓 AUTO-UPDATE every session -->
 
-**Status:** TestFlight beta
-**Last updated:** 2026-10-14
-**iOS build:** 1.0 (21)
-**API:** retired. The Cloud Run shortlink service no longer exists; the app has no server.
+**Status:** production pass in progress (build 22, local commits, not yet uploaded)
+**Last updated:** 2026-10-26
+**iOS build:** 1.0 (22)
 
-**2026-10-14 pass (build 20):**
-- Capture fixed: sent = same field empties with no recent backspace; drafts, field switches and pre-existing text ignored; search/URL/login/code/card/address fields skipped; Pause switch
-- `CaptureFilter` blanks emails, links, long numbers before storage; 1,000-message cap; dedupe
-- Autocorrect no longer forces ambiguous contractions (were/its/well/ill/id/…) and leaves slang, learned words, mid-sentence names alone; removed the duplicate retroactive fixer
-- Shortlink upload removed; export = Copy / Share; privacy copy made true (onboarding said messages were never stored — they were)
-- Try Your Voice (rewrite / reply) and Spot the Fake (blind test) on Apple's on-device FoundationModels
-- Live keyboard + Full Access checklist; first prompt at 50 messages, best at 200
-- Beta is free; StoreKit still not wired
+**2026-10-26 pass (build 22):**
+- Autocorrect rebuilt as `ios/Packages/BARkeyEngine` (pure Swift, tested on the Mac): SCOWL+Google-Books lexicon trie
+  (90k words with frequencies), A* decoder with a QWERTY key-distance slip model (neighbour, missed, extra, swapped keys,
+  dropped apostrophes), Witten-Bell language model over corpus phrases + the person's own messages, correction policy
+  (never touch known words except dwarfed contractions like "cant"; junk word-list entries like "rhe" are correctable;
+  names, handles, URLs, numbers, deliberate casing, texting words and owned words are protected). Fat-finger benchmark
+  (`swift run -c release barkey-eval`): 73–78% of single slips fixed, 0 of ~1,000 clean words ruined, ~0.7 ms/word.
+- KeyboardKit 10.3 → 10.9.7 (free). Needed `SWIFT_ENABLE_EXPLICIT_MODULES: NO` for its LicenseKit dependency on Xcode 27.
+- Feel settings on: character previews, haptics + clicks (default on first launch), autocap, double-space period,
+  hold-space cursor. Backspace right after a correction reverts it and keeps the word (shared `KeptWords`); tapping the
+  typed word in the bar keeps it too.
+- "Write like me" without copy-paste: (1) keyboard shortcut word (default `myvoice`) + space types a 12-example voice brief
+  into any app (Dot, Muse…); (2) `server/` voice server: app encrypts the prompt (AES-GCM, CryptoKit, key in Keychain),
+  server stores ciphertext only; MCP (Claude/ChatGPT), REST JSON (Muse custom connector), markdown page. ConnectView in app.
+  Auto-refresh after 25 new messages. Burn deletes server copy. Server tests pass (`node server/test.mjs`).
+- Home screen: "Try the keyboard" field, "Use It in Your Assistants" action.
+- Deployment of `barkey-voice` (fleet registry, tunnel ingress, CNAME barkey.polyfeeds.dev, port 8520) prepared but
+  NOT applied: blocked pending Paul's explicit go.
 
-**What's next:** device test of capture in iMessage/WhatsApp; App Review guideline 4.4.1 (keyboards may only collect activity to improve the keyboard) is the open risk for public release; StoreKit.
+**What's next:** Paul types on build 22 (installed on PJ iPhone via devicectl); deploy barkey-voice; TestFlight upload
+(`ios/ship-testflight.sh`); App Review 4.4.1 wording; StoreKit decision.
 
 ## Success Metrics
 <!-- OWNER CONTEXT — keep success criteria evidence-based and task-aligned -->

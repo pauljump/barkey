@@ -219,6 +219,22 @@ enum PromptGenerator {
         return lines.joined(separator: "\n")
     }
 
+    /// A short version for the keyboard to type into any chat: a dozen real examples and the rules.
+    static func generateBrief(_ messages: [String], profile: StyleProfile, exampleCount: Int = 12) -> String {
+        let examples = selectRepresentativeMessages(from: messages, count: exampleCount)
+        var lines: [String] = []
+        lines.append("Write like me. These are messages I actually sent; match their length, capitalization, punctuation and slang exactly. Never add ideas I didn't give you, never copy an example word for word.")
+        for example in examples { lines.append("- \"\(example)\"") }
+        var rules: [String] = []
+        rules.append("about \(Int(profile.avgWordsPerMessage.rounded())) words a message")
+        if profile.emojiRate < 0.05 { rules.append("no emoji") }
+        if profile.exclamationRate < 0.05 { rules.append("no exclamation marks") }
+        if profile.lowercaseStartRate > 0.3 { rules.append("often lowercase") }
+        if let opener = profile.topOpeners.first { rules.append("often opens with \"\(opener.0)\"") }
+        lines.append("Style: " + rules.joined(separator: ", ") + ".")
+        return lines.joined(separator: "\n")
+    }
+
     /// Select a diverse set of representative messages.
     /// Picks across different length buckets and avoids near-duplicates.
     static func selectRepresentativeMessages(from messages: [String], count: Int) -> [String] {

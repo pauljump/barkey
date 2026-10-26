@@ -8,14 +8,22 @@ emails, links and long numbers blanked out first. From 50 messages, BARkey turns
 system prompt that makes ChatGPT, Claude or Gemini write in your voice: your length, your
 capitalization, your slang, your openers. Copy it, burn the messages, delete the app.
 
-There is no server, no account and no analytics. Nothing leaves the phone unless you copy or
-share the prompt yourself.
+There is no account and no analytics. Nothing leaves the phone unless you copy or share the prompt
+yourself, or turn on the optional voice link so your assistants can use it without copy-paste.
 
 ## What's in the TestFlight build
 
-- **The keyboard.** Looks like the stock iOS keyboard with BARkey's own autocorrect. Captures a
-  message only when it's actually sent: a field that empties without backspacing. It skips search
+- **The keyboard.** Looks and feels like the stock iOS keyboard: key pop-ups, haptics, sentence caps,
+  double-space period, hold space to move the cursor. Autocorrect is BARkey's own (`ios/Packages/BARkeyEngine`):
+  a 90k-word English lexicon with real frequencies, a QWERTY slip model (neighbour keys, missed, extra and
+  swapped keys), corpus phrases for context, and your own sent messages as vocabulary, so your names and
+  slang are never "fixed". Backspace right after a correction puts your word back and the keyboard learns it.
+  Captures a message only when it's actually sent: a field that empties without backspacing. It skips search
   bars, address bars, logins, codes, card numbers and addresses, and has a Pause switch.
+- **Write like me, everywhere.** Type your shortcut word (default `myvoice`) and a space in any app and the
+  keyboard types a short version of your voice into the chat. Or create a private link: your prompt is
+  encrypted on the phone and your assistants read it directly (MCP for Claude and ChatGPT, a JSON URL for a
+  Muse custom connector, a plain page for anything else). Burn it any time.
 - **Your voice prompt** (from 50 messages, best at 200). Real examples plus measured style
   (length, punctuation, emoji, slang, openers). Copy or Share.
 - **Try Your Voice.** Rewrite a message in your voice, or draft the reply you'd send, using
@@ -41,7 +49,10 @@ system keyboard in password fields. Try Your Voice and Spot the Fake need Apple 
 |---|---|
 | `ios/` | XcodeGen project: app (`BARkeyApp/`), keyboard extension (`BARkeyKeyboard/`), shared code (`Shared/`) |
 | `ios/Shared/CaptureFilter.swift` | What gets blanked or dropped before anything is saved |
-| `ios/BARkeyKeyboard/KeyboardViewController.swift` | When a message counts as sent, and which fields are skipped |
+| `ios/BARkeyKeyboard/KeyboardViewController.swift` | When a message counts as sent, which fields are skipped, undo-on-backspace, the voice shortcut |
+| `ios/BARkeyKeyboard/BARkeyAutocompleteService.swift` | Feeds the engine's suggestions to KeyboardKit |
+| `ios/Packages/BARkeyEngine/` | The autocorrect engine (pure Swift, `swift test`; `swift run -c release barkey-eval` for the fat-finger benchmark) |
+| `server/` | The voice server (zero-dependency Node): encrypted prompts, MCP + REST + page. `node test.mjs` |
 | `ios/Shared/PromptGenerator.swift` | Messages → voice prompt |
 | `api/` | Retired shortlink service from the March build. Not used by the app; kept for history |
 | `research/` | Landscape of proof-of-human-writing products (Turrii and others) |
@@ -49,7 +60,9 @@ system keyboard in password fields. Try Your Voice and Spot the Fake need Apple 
 | `docs/PROJECT-CONTEXT.md` | Product history and design notes |
 
 Build: `cd ios && xcodegen generate && open BARkey.xcodeproj`. Uses
-[KeyboardKit](https://github.com/KeyboardKit/KeyboardKit) 10.3 (free tier). Signing uses the
+[KeyboardKit](https://github.com/KeyboardKit/KeyboardKit) 10.9 (free tier) for the keyboard surface; autocorrect
+is BARkey's own. Word list and phrase data: SCOWL + Google Books fiction n-grams (see
+`ios/Packages/BARkeyEngine/NOTICE.md`). Signing uses the
 owner's team; change `DEVELOPMENT_TEAM` in `ios/project.yml` to build your own.
 
 ## Why "burn after reading"

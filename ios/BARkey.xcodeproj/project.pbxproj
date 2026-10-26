@@ -9,15 +9,19 @@
 /* Begin PBXBuildFile section */
 		02450BE08D88FF9CEF7C1896 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8F6324DABAC105D07FAB5 /* OnboardingView.swift */; };
 		072A9E977DC26EE2C1A7B6BF /* KeyboardKit in Frameworks */ = {isa = PBXBuildFile; productRef = A0119E71CE09B9FFB667A29D /* KeyboardKit */; };
+		08AED91B01A7FF585D4A5D66 /* VoiceBrief.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA2968D12B9AE19E716B19 /* VoiceBrief.swift */; };
 		13ADF3BF0FDD34995EAF23F6 /* CaptureFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB34121AD0B7D71C19654D1 /* CaptureFilter.swift */; };
+		1BBC055AF146D3787EEEA69E /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A70EF75979FCE8350B751C /* ConnectView.swift */; };
 		1C18201DADCEF6C264EB52DE /* BARkeyKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B6DA50C605A1C40C8A9822C7 /* BARkeyKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2425164A60D64BF3C0DB1F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02A43E0D50CD15DCA54ABAB /* Assets.xcassets */; };
 		2A39298D933A7A8A57929610 /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36659B7A234D581162F9E2BF /* VoiceModel.swift */; };
+		2E9C8709FB3A4B99B8ED979A /* VoiceBrief.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA2968D12B9AE19E716B19 /* VoiceBrief.swift */; };
 		3A60AED7A892344CAAD63C75 /* CaptureSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEADD794F5072BDF5460AE6 /* CaptureSettings.swift */; };
 		3B2C7107A66ECC163B183225 /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */; };
 		3CC6216271369A6C5754F9D0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A680972D708580BE61D6 /* AppState.swift */; };
 		4304A5706FC2B47108882BF8 /* PromptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5444BB82343484A7DB3888D /* PromptGenerator.swift */; };
 		480E9C8BB20578A33FB9E406 /* StyleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414CD38E4B2D73B6E05E8C9 /* StyleProfile.swift */; };
+		4D381EFD536951FD1B6A1BC3 /* VoiceLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC72F03094105CF6C61AA1D /* VoiceLink.swift */; };
 		5576753296C805A4999765E1 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB8DF5C3639B4FD006BB85 /* MessageStore.swift */; };
 		56510F8202D91B78C2C80324 /* BARkeyKeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */; };
 		57831AE0CAA2033D8D1EA82A /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F161F3B5D7856F6B66E74E /* DemoData.swift */; };
@@ -83,12 +87,14 @@
 		45BBF1BBAC271C825E24DB8D /* StyleAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleAnalyzer.swift; sourceTree = "<group>"; };
 		4668B08587770098F7328C49 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4C16A680972D708580BE61D6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4CC72F03094105CF6C61AA1D /* VoiceLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceLink.swift; sourceTree = "<group>"; };
 		4DB34121AD0B7D71C19654D1 /* CaptureFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFilter.swift; sourceTree = "<group>"; };
 		5AEADD794F5072BDF5460AE6 /* CaptureSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSettings.swift; sourceTree = "<group>"; };
 		63B8F6324DABAC105D07FAB5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		64F161F3B5D7856F6B66E74E /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
 		6F23F015D63F86FA299D5E5D /* RewriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewriteView.swift; sourceTree = "<group>"; };
 		7299B096D8995084AD58C011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		72A70EF75979FCE8350B751C /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
 		89923EBA5A6F3B49003019BE /* BARkeyKeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BARkeyKeyboardApp.swift; sourceTree = "<group>"; };
 		8D18499B1CA34AC6CDD0278F /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		ACAD6055AC1E2CC5132FAB8A /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		C0E7AD59BB593F41F931E3A4 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		D5444BB82343484A7DB3888D /* PromptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptGenerator.swift; sourceTree = "<group>"; };
 		E510C265299CF9C0878987FF /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		E8EA2968D12B9AE19E716B19 /* VoiceBrief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceBrief.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				AEAC8514125AFCC2FCB79BD6 /* BlindTestView.swift */,
+				72A70EF75979FCE8350B751C /* ConnectView.swift */,
 				C0E7AD59BB593F41F931E3A4 /* ExportView.swift */,
 				4668B08587770098F7328C49 /* HomeView.swift */,
 				0FA31B8B49E9A4D2D2BC0480 /* MessageReviewView.swift */,
@@ -158,6 +166,7 @@
 				34142313CEA4816641200E15 /* BARkeyApp.swift */,
 				64F161F3B5D7856F6B66E74E /* DemoData.swift */,
 				0CF6A13592041CBCA0DBC4AE /* Theme.swift */,
+				4CC72F03094105CF6C61AA1D /* VoiceLink.swift */,
 				36659B7A234D581162F9E2BF /* VoiceModel.swift */,
 			);
 			path = App;
@@ -175,6 +184,7 @@
 				D5444BB82343484A7DB3888D /* PromptGenerator.swift */,
 				45BBF1BBAC271C825E24DB8D /* StyleAnalyzer.swift */,
 				4414CD38E4B2D73B6E05E8C9 /* StyleProfile.swift */,
+				E8EA2968D12B9AE19E716B19 /* VoiceBrief.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -335,6 +345,7 @@
 				9DEC1F42D164D80C4C122B4D /* BlindTestView.swift in Sources */,
 				A88E0BAA776262AC770568ED /* CaptureFilter.swift in Sources */,
 				7CA04F33435945C6AC8D4C74 /* CaptureSettings.swift in Sources */,
+				1BBC055AF146D3787EEEA69E /* ConnectView.swift in Sources */,
 				57831AE0CAA2033D8D1EA82A /* DemoData.swift in Sources */,
 				CDBF8A286F1D806620D39E93 /* ExportView.swift in Sources */,
 				E72B35AA52A172E889AEB38E /* HomeView.swift in Sources */,
@@ -349,6 +360,8 @@
 				657B8FD33681805BF99CE539 /* StyleAnalyzer.swift in Sources */,
 				480E9C8BB20578A33FB9E406 /* StyleProfile.swift in Sources */,
 				5F411335D1CBFC11EA3ABA02 /* Theme.swift in Sources */,
+				08AED91B01A7FF585D4A5D66 /* VoiceBrief.swift in Sources */,
+				4D381EFD536951FD1B6A1BC3 /* VoiceLink.swift in Sources */,
 				2A39298D933A7A8A57929610 /* VoiceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +381,7 @@
 				666BA87BAF6AD425FC0B782B /* PromptGenerator.swift in Sources */,
 				89E3E81B7F66347DA68070D5 /* StyleAnalyzer.swift in Sources */,
 				E1A686AEC8953466BB74FF35 /* StyleProfile.swift in Sources */,
+				2E9C8709FB3A4B99B8ED979A /* VoiceBrief.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

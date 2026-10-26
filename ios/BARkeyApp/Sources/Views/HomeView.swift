@@ -10,6 +10,9 @@ struct HomeView: View {
     @State private var showingRewrite = false
     @State private var showingBlindTest = false
     @State private var showingPricing = false
+    @State private var showingConnect = false
+    @State private var tryText = ""
+    @FocusState private var tryFocused: Bool
     @State private var confirmingBurn = false
 
     let refreshTimer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
@@ -30,6 +33,7 @@ struct HomeView: View {
                         }
                         styleSummaryCard
                         actionsSection
+                        tryKeyboardCard
                         controlsCard
                         betaCard
                     }
@@ -71,6 +75,9 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showingPricing) {
                 PricingView()
+            }
+            .sheet(isPresented: $showingConnect) {
+                ConnectView(link: appState.voiceLink).environmentObject(appState)
             }
             .confirmationDialog(
                 "Burn all \(appState.totalMessages) captured messages?",
@@ -222,6 +229,7 @@ struct HomeView: View {
         VStack(spacing: 12) {
             if appState.canExport {
                 actionButton("doc.text", "Get Your Voice Prompt", detail: nil, primary: true) { showingExport = true }
+                actionButton("link", "Use It in Your Assistants", detail: appState.voiceLink.isPublished ? "online" : "no copy-paste", primary: false) { showingConnect = true }
                 actionButton("wand.and.stars", "Try Your Voice", detail: "on-device", primary: false) { showingRewrite = true }
                 actionButton("eye.trianglebadge.exclamationmark", "Spot the Fake", detail: "blind test", primary: false) { showingBlindTest = true }
             }
@@ -229,6 +237,39 @@ struct HomeView: View {
                 actionButton("text.bubble", "Review Messages", detail: "\(appState.totalMessages) saved", primary: false) { showingReview = true }
             }
         }
+    }
+
+    // MARK: - Try the keyboard
+
+    private var tryKeyboardCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Text("Try the keyboard")
+                    .font(Theme.headlineFont)
+                    .foregroundColor(Theme.textPrimary)
+                Spacer()
+                if !tryText.isEmpty {
+                    Button("Clear") { tryText = "" }
+                        .font(Theme.captionFont).foregroundColor(Theme.accent)
+                }
+            }
+            Text("Hold 🌐 and pick BARkey. Type fast and sloppy. Backspace right after a fix puts your word back.")
+                .font(.system(size: 13))
+                .foregroundColor(Theme.textSecondary)
+            TextEditor(text: $tryText)
+                .focused($tryFocused)
+                .frame(minHeight: 90)
+                .padding(8)
+                .background(Theme.smoke.opacity(0.6))
+                .cornerRadius(10)
+                .font(Theme.bodyFont)
+            Text("Nothing typed here is saved.")
+                .font(Theme.captionFont)
+                .foregroundColor(Theme.textSecondary)
+        }
+        .padding(20)
+        .background(Theme.cardBackground)
+        .cornerRadius(20)
     }
 
     // MARK: - Controls

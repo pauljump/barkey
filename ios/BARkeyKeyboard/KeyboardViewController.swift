@@ -158,6 +158,7 @@ private final class BARkeyActionHandler: StandardKeyboardActionHandler {
     }
 
     override func handle(_ gesture: Keyboard.Gesture, on action: KeyboardAction) {
+        if case .space = action, gesture == .release, expandVoiceShortcut() { return }
         if case .backspace = action, gesture == .press || gesture == .repeatPress {
             barkeyController?.lastBackspaceAt = Date()
             if gesture == .press, revertLastCorrection() { return }
@@ -186,6 +187,16 @@ private final class BARkeyActionHandler: StandardKeyboardActionHandler {
         if proxy.currentWordPreCursorPart == fix {
             lastCorrection = (typed, fix, action.triggerText ?? " ")
         }
+    }
+
+    /// "myvoice" + space, in any app, becomes the short voice brief (so Dot, Muse or anyone writes like you).
+    private func expandVoiceShortcut() -> Bool {
+        guard VoiceBrief.isEnabled, let brief = VoiceBrief.brief, let proxy = barkeyController?.textDocumentProxy,
+              let word = proxy.currentWordPreCursorPart, word.lowercased() == VoiceBrief.shortcut else { return false }
+        for _ in 0..<word.count { proxy.deleteBackward() }
+        proxy.insertText(brief + "\n\n")
+        lastCorrection = nil
+        return true
     }
 
     /// If the text before the cursor ends with the last correction plus its trigger, put the typed word back.
