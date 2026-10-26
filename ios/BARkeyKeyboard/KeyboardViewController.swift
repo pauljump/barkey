@@ -1,5 +1,6 @@
 import UIKit
 import KeyboardKit
+import BARkeyEngine
 
 class KeyboardViewController: KeyboardInputViewController {
 
@@ -17,13 +18,39 @@ class KeyboardViewController: KeyboardInputViewController {
     /// Timer that polls the text proxy to detect sent messages.
     private var pollTimer: Timer?
 
+    fileprivate let autocomplete = BARkeyAutocompleteService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardKit(for: .barkey) { [weak self] _ in
             guard let self else { return }
-            let autocomplete = AppleAutocompleteService()
-            self.services.autocompleteService = autocomplete
+            self.services.autocompleteService = self.autocomplete
             self.services.actionHandler = BARkeyActionHandler(controller: self)
+            self.applyFeelSettings()
+        }
+    }
+
+    /// The parts of Apple's keyboard people notice: pop-ups, haptics, sentence caps, double-space period,
+    /// hold-space to move the cursor, and corrections applied as you go.
+    private func applyFeelSettings() {
+        let keyboard = state.keyboardContext.settings
+        keyboard.isAutocapitalizationEnabled = true
+        keyboard.isPeriodShortcutEnabled = true
+        keyboard.isCharacterPreviewEnabled = true
+        keyboard.spacebarLongPressBehavior = .moveInputCursor
+        keyboard.isUndoManagerEnabled = false
+
+        let autocompleteSettings = state.autocompleteContext.settings
+        autocompleteSettings.isAutocompleteEnabled = true
+        autocompleteSettings.isAutocorrectEnabled = true
+        autocompleteSettings.isNextWordPredictionEnabled = false // predictions come from BARkey's own corrector
+        autocompleteSettings.isEmojiAutocompleteEnabled = false
+
+        let feedback = state.feedbackContext.settings
+        if !UserDefaults.standard.bool(forKey: "barkey_feedback_defaults_applied") {
+            feedback.isHapticFeedbackEnabled = true
+            feedback.isAudioFeedbackEnabled = true
+            UserDefaults.standard.set(true, forKey: "barkey_feedback_defaults_applied")
         }
     }
 
@@ -78,7 +105,11 @@ class KeyboardViewController: KeyboardInputViewController {
             lastKnownText = ""
             let clearedByHand = Date().timeIntervalSince(lastBackspaceAt) < 1.0
             guard !message.isEmpty, !clearedByHand, shouldCapture() else { return }
-            MessageStore.appendMessage(message)
+            if MessageStore.appendMessage(message) {
+                // The person's own words feed the corrector right away.
+                autocomplete.corrector.personal.add(message: message)
+                autocomplete.corrector.invalidate()
+            }
         } else {
             lastKnownText = currentText
         }
@@ -112,9 +143,14 @@ class KeyboardViewController: KeyboardInputViewController {
     }
 }
 
-/// Notes backspace presses so a field emptied by hand is not taken as sent.
-private final class BARkeyActionHandler: KeyboardAction.StandardActionHandler {
+/// Apple's two autocorrect manners, on top of KeyboardKit's: backspace right after a correction puts the typed word
+/// back (and the keyboard stops correcting it), and tapping the typed word in the bar teaches it too. Also notes
+/// backspace presses so a field emptied by hand is not taken as sent.
+private final class BARkeyActionHandler: StandardKeyboardActionHandler {
     weak var barkeyController: KeyboardViewController?
+
+    /// The last correction applied: what was typed, what replaced it, and the character that triggered it.
+    private var lastCorrection: (typed: String, corrected: String, trigger: String)?
 
     convenience init(controller: KeyboardViewController) {
         self.init(controller: controller as any KeyboardController)
@@ -122,9 +158,56 @@ private final class BARkeyActionHandler: KeyboardAction.StandardActionHandler {
     }
 
     override func handle(_ gesture: Keyboard.Gesture, on action: KeyboardAction) {
-        if case .backspace = action {
+        if case .backspace = action, gesture == .press || gesture == .repeatPress {
             barkeyController?.lastBackspaceAt = Date()
+            if gesture == .press, revertLastCorrection() { return }
+        }
+        if case .character = action { /* a new word is under way; the old correction stands */ } else if case .space = action {} else {
+            if case .backspace = action {} else { lastCorrection = nil }
         }
         super.handle(gesture, on: action)
+    }
+
+    override func handle(_ suggestion: AutocompleteSuggestion) {
+        // Choosing the typed word over a correction teaches the keyboard that word.
+        if suggestion.isRegular, let typed = keyboardContext.textDocumentProxy.currentWordPreCursorPart,
+           suggestion.text == typed, autocompleteContext.suggestions.contains(where: \.isAutocorrect) {
+            barkeyController?.autocomplete.learnWord(typed)
+        }
+        super.handle(suggestion)
+    }
+
+    override func tryApplyAutocorrectSuggestion(before gesture: Keyboard.Gesture, on action: KeyboardAction) {
+        let proxy = keyboardContext.textDocumentProxy
+        let typed = proxy.currentWordPreCursorPart
+        let fix = autocompleteContext.suggestions.first(where: \.isAutocorrect)?.text
+        super.tryApplyAutocorrectSuggestion(before: gesture, on: action)
+        guard let typed, let fix, typed != fix, shouldApplyAutocorrectSuggestion(before: gesture, on: action) else { return }
+        if proxy.currentWordPreCursorPart == fix {
+            lastCorrection = (typed, fix, action.triggerText ?? " ")
+        }
+    }
+
+    /// If the text before the cursor ends with the last correction plus its trigger, put the typed word back.
+    private func revertLastCorrection() -> Bool {
+        guard let last = lastCorrection, let proxy = barkeyController?.textDocumentProxy else { return false }
+        lastCorrection = nil
+        let tail = last.corrected + last.trigger
+        guard let before = proxy.documentContextBeforeInput, before.hasSuffix(tail) else { return false }
+        for _ in 0..<tail.count { proxy.deleteBackward() }
+        proxy.insertText(last.typed + last.trigger)
+        barkeyController?.autocomplete.learnWord(last.typed)
+        return true
+    }
+}
+
+private extension KeyboardAction {
+    /// The text a space or punctuation key inserts, when it is one.
+    var triggerText: String? {
+        switch self {
+        case .space: return " "
+        case .character(let c): return c
+        default: return nil
+        }
     }
 }

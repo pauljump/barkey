@@ -1,0 +1,21 @@
+{
+  "" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary.dia",
+    "emit-module-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary-emit-module.dia",
+    "pch" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/barkey-eval-primary.swiftdeps"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/barkey-eval/EvalCorpus.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/EvalCorpus.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/EvalCorpus.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/EvalCorpus.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/barkey-eval/main.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/main.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/main.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/barkey-eval-p.build/Objects-normal/arm64/main.o"
+  }
+}

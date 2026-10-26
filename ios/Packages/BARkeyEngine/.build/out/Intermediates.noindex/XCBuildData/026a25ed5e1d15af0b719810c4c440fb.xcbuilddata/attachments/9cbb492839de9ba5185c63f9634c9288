@@ -1,0 +1,4 @@
+module BARkeyEngine {
+header "BARkeyEngine-Swift.h"
+export *
+}

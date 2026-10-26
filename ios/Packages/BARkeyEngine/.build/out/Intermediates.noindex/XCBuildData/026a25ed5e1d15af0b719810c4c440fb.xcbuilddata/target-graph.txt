@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Target 'barkey-eval-product' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine' in project 'BARkeyEngine'
+Target 'BARkeyEngine' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine_BARkeyEngine' in project 'BARkeyEngine'
+Target 'BARkeyEngine_BARkeyEngine' in project 'BARkeyEngine' (no dependencies)

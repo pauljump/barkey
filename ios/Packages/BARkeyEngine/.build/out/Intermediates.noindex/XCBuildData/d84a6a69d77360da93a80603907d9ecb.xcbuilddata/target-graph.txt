@@ -1,0 +1,18 @@
+Target dependency graph (6 targets)
+Target 'AllIncludingTests' in project 'Aggregate'
+➜ Explicit dependency on target 'BARkeyEngineTests-product' in project 'BARkeyEngine'
+➜ Dependency on target 'BARkeyEngineTests-product' in project 'BARkeyEngine' via transitive dependency through 'BARkeyEngineTests-test-runner'
+➜ Explicit dependency on target 'BARkeyEngine-product' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'barkey-eval-product' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine_BARkeyEngine' in project 'BARkeyEngine'
+Target 'barkey-eval-product' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine' in project 'BARkeyEngine'
+Target 'BARkeyEngine-product' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine_BARkeyEngine' in project 'BARkeyEngine'
+Target 'BARkeyEngineTests-product' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine' in project 'BARkeyEngine'
+Target 'BARkeyEngine' in project 'BARkeyEngine'
+➜ Explicit dependency on target 'BARkeyEngine_BARkeyEngine' in project 'BARkeyEngine'
+Target 'BARkeyEngine_BARkeyEngine' in project 'BARkeyEngine' (no dependencies)

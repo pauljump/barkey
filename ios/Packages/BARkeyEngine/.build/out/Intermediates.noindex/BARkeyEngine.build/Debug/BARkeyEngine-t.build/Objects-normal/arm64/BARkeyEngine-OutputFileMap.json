@@ -1,0 +1,109 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.dia",
+    "emit-module-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary-emit-module.dia",
+    "pch" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.swiftdeps"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Corrector.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Corrector~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Decoder.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Decoder~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/KeyGeometry.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/LanguageModel.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Lexicon.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Math.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Math~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/PersonalVocabulary.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Phrases.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Phrases~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Words.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngine-t.build/Objects-normal/arm64/Words~partial.swiftmodule"
+  }
+}

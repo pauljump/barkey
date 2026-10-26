@@ -1,0 +1,12 @@
+{
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "abi-baseline-json" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine.abi.json",
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.dia",
+    "objc-header" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-Swift.h",
+    "swiftdoc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine.swiftdoc",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine.swiftmodule",
+    "swiftsourceinfo" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine.swiftsourceinfo"
+  }
+}

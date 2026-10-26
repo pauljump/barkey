@@ -1,0 +1,61 @@
+{
+  "" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.dia",
+    "emit-module-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary-emit-module.dia",
+    "pch" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/BARkeyEngine-primary.swiftdeps"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Corrector.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Corrector.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Decoder.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Decoder.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/KeyGeometry.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/KeyGeometry.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/LanguageModel.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/LanguageModel.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Lexicon.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Lexicon.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Math.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Math.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Math.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Math.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/PersonalVocabulary.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/PersonalVocabulary.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Phrases.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Phrases.o"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Sources/BARkeyEngine/Words.swift" : {
+    "index-unit-output-path" : "/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Words.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Words.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Release/BARkeyEngine-t.build/Objects-normal/arm64/Words.o"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/BARkeyEngineTests-primary.dia",
+    "emit-module-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/BARkeyEngineTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/BARkeyEngineTests-primary-emit-module.dia",
+    "pch" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/BARkeyEngineTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/BARkeyEngineTests-primary.swiftdeps"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/DerivedSources/test_entry_point.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/test_entry_point~partial.swiftmodule"
+  },
+  "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/Tests/BARkeyEngineTests/CorrectorTests.swift" : {
+    "const-values" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.swiftconstvalues",
+    "dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.d",
+    "diagnostics" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.dia",
+    "index-unit-output-path" : "/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.o",
+    "llvm-bc" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.bc",
+    "object" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.o",
+    "swift-dependencies" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests.swiftdeps",
+    "swiftmodule" : "/Users/mini-home/projects/barkey/ios/Packages/BARkeyEngine/.build/out/Intermediates.noindex/BARkeyEngine.build/Debug/BARkeyEngineTests-p.build/Objects-normal/arm64/CorrectorTests~partial.swiftmodule"
+  }
+}
