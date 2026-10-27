@@ -1,6 +1,22 @@
 import UIKit
+import os
 import KeyboardKit
 import BARkeyEngine
+
+/// Debug trail in the extension's own temp folder (readable from the simulator's data container).
+enum KeyboardDebug {
+    static func log(_ line: String) {
+        #if DEBUG
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("barkey-debug.log")
+        let data = Data((Date().formatted(date: .omitted, time: .standard) + " " + line + "\n").utf8)
+        if let h = try? FileHandle(forWritingTo: url) { h.seekToEndOfFile(); h.write(data); try? h.close() } else { try? data.write(to: url) }
+        let d = UserDefaults(suiteName: "group.com.barkey.app")
+        var lines = d?.stringArray(forKey: "kb_debug") ?? []
+        lines.append(line); if lines.count > 300 { lines.removeFirst(lines.count - 300) }
+        d?.set(lines, forKey: "kb_debug")
+        #endif
+    }
+}
 
 class KeyboardViewController: KeyboardInputViewController {
 
@@ -22,8 +38,10 @@ class KeyboardViewController: KeyboardInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardKit(for: .barkey) { [weak self] _ in
+        KeyboardDebug.log("viewDidLoad")
+        setupKeyboardKit(for: .barkey) { [weak self] result in
             guard let self else { return }
+            KeyboardDebug.log("setup completion \(result)")
             self.services.autocompleteService = self.autocomplete
             self.services.actionHandler = BARkeyActionHandler(controller: self)
             self.applyFeelSettings()
@@ -52,6 +70,11 @@ class KeyboardViewController: KeyboardInputViewController {
             feedback.isAudioFeedbackEnabled = true
             UserDefaults.standard.set(true, forKey: "barkey_feedback_defaults_applied")
         }
+    }
+
+    override func viewWillSetupKeyboardView() {
+        KeyboardDebug.log("viewWillSetupKeyboardView handler=\(type(of: services.actionHandler)) service=\(type(of: services.autocompleteService))")
+        super.viewWillSetupKeyboardView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -149,6 +172,9 @@ class KeyboardViewController: KeyboardInputViewController {
 private final class BARkeyActionHandler: StandardKeyboardActionHandler {
     weak var barkeyController: KeyboardViewController?
 
+    private let log = Logger(subsystem: "com.barkey.keyboard", category: "actions")
+    private func debugLog(_ line: String) { KeyboardDebug.log(line) }
+
     /// The last correction applied: what was typed, what replaced it, and the character that triggered it.
     private var lastCorrection: (typed: String, corrected: String, trigger: String)?
 
@@ -158,6 +184,7 @@ private final class BARkeyActionHandler: StandardKeyboardActionHandler {
     }
 
     override func handle(_ gesture: Keyboard.Gesture, on action: KeyboardAction) {
+        debugLog("handle \(gesture) \(action) word=\(keyboardContext.textDocumentProxy.currentWordPreCursorPart ?? "nil") before=\(barkeyController?.textDocumentProxy.documentContextBeforeInput ?? "nil") ac=\(autocompleteContext.suggestions.map { "\($0.text):\($0.type)" }) last=\(lastCorrection.map { "\($0.typed)>\($0.corrected)" } ?? "nil")")
         if case .space = action, gesture == .release, expandVoiceShortcut() { return }
         if case .backspace = action, gesture == .press || gesture == .repeatPress {
             barkeyController?.lastBackspaceAt = Date()
@@ -178,15 +205,23 @@ private final class BARkeyActionHandler: StandardKeyboardActionHandler {
         super.handle(suggestion)
     }
 
+    /// Applies the correction at the moment the space or punctuation is typed, computed right now from the text,
+    /// so a fast thumb never outruns the suggestion bar. Falls back to KeyboardKit's own path otherwise.
     override func tryApplyAutocorrectSuggestion(before gesture: Keyboard.Gesture, on action: KeyboardAction) {
-        let proxy = keyboardContext.textDocumentProxy
-        let typed = proxy.currentWordPreCursorPart
-        let fix = autocompleteContext.suggestions.first(where: \.isAutocorrect)?.text
-        super.tryApplyAutocorrectSuggestion(before: gesture, on: action)
-        guard let typed, let fix, typed != fix, shouldApplyAutocorrectSuggestion(before: gesture, on: action) else { return }
-        if proxy.currentWordPreCursorPart == fix {
-            lastCorrection = (typed, fix, action.triggerText ?? " ")
+        guard gesture == .release, let trigger = action.triggerText, autocompleteContext.settings.isAutocorrectEnabled,
+              let corrector = barkeyController?.autocomplete.corrector else {
+            return super.tryApplyAutocorrectSuggestion(before: gesture, on: action)
         }
+        let proxy = keyboardContext.textDocumentProxy
+        guard let typed = proxy.currentWordPreCursorPart, !typed.isEmpty, proxy.currentWordPostCursorPart?.isEmpty ?? true else {
+            return super.tryApplyAutocorrectSuggestion(before: gesture, on: action)
+        }
+        let before = proxy.documentContextBeforeInput ?? ""
+        let fix = corrector.suggestions(for: before).autocorrect
+        debugLog("space-fix typed=\(typed) fix=\(fix ?? "nil")")
+        guard let fix, fix != typed else { return }
+        proxy.replaceCurrentWordPreCursorPart(with: fix)
+        lastCorrection = (typed, fix, trigger)
     }
 
     /// "myvoice" + space, in any app, becomes the short voice brief (so Dot, Muse or anyone writes like you).
@@ -213,11 +248,12 @@ private final class BARkeyActionHandler: StandardKeyboardActionHandler {
 }
 
 private extension KeyboardAction {
-    /// The text a space or punctuation key inserts, when it is one.
+    /// The text a space or end-of-word punctuation key inserts, when it is one. Letters are not triggers.
     var triggerText: String? {
         switch self {
         case .space: return " "
-        case .character(let c): return c
+        case .character(let c) where c.count == 1 && ".,!?;:)\n".contains(c): return c
+        case .primary: return "\n"
         default: return nil
         }
     }

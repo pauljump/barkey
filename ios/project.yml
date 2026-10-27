@@ -77,6 +77,7 @@ targets:
         INFOPLIST_KEY_CFBundleDisplayName: BARkey
         INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.keyboard-service
         SWIFT_EMIT_LOC_STRINGS: YES
+        ENABLE_DEBUG_DYLIB: NO
     entitlements:
       path: BARkeyKeyboard/BARkeyKeyboard.entitlements
       properties:
