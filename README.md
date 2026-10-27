@@ -52,6 +52,7 @@ system keyboard in password fields. Try Your Voice and Spot the Fake need Apple 
 | `ios/BARkeyKeyboard/KeyboardViewController.swift` | When a message counts as sent, which fields are skipped, undo-on-backspace, the voice shortcut |
 | `ios/BARkeyKeyboard/BARkeyAutocompleteService.swift` | Feeds the engine's suggestions to KeyboardKit |
 | `ios/Packages/BARkeyEngine/` | The autocorrect engine (pure Swift, `swift test`; `swift run -c release barkey-eval` for the fat-finger benchmark) |
+| `ios/BARkeyUITests/` + `ios/qa/sim-keyboard.sh` | Simulator tests that type on the real BARkey keyboard (adds it in Settings, switches with Next keyboard, taps by key geometry). `qa/sim-keyboard.sh <udid>` then `xcodebuild test -scheme BARkey -only-testing:BARkeyUITests -collect-test-diagnostics never` |
 | `server/` | The voice server (zero-dependency Node): encrypted prompts, MCP + REST + page. `node test.mjs` |
 | `ios/Shared/PromptGenerator.swift` | Messages → voice prompt |
 | `api/` | Retired shortlink service from the March build. Not used by the app; kept for history |

@@ -157,6 +157,7 @@ xcodebuild build -project BARkey.xcodeproj -scheme BARkey \
   server stores ciphertext only; MCP (Claude/ChatGPT), REST JSON (Muse custom connector), markdown page. ConnectView in app.
   Auto-refresh after 25 new messages. Burn deletes server copy. Server tests pass (`node server/test.mjs`).
 - Home screen: "Try the keyboard" field, "Use It in Your Assistants" action.
+- Verified live in the simulator (BARkeyUITests, both pass): "teh " → "The ", backspace right after puts "teh " back, "lol" untouched, double-space period + sentence caps ("Hi there. Ok"). Corrections are applied synchronously on space/punctuation (`tryApplyAutocorrectSuggestion` override), so a fast thumb can't outrun the bar. Gotchas: a custom keyboard's keys are invisible to XCUITest (tap by the system keyboard's key frames); the "Next keyboard" button's value names the *next* keyboard; keyboard-extension debug trail = `kb_debug` in the App Group plist (Debug builds).
 - Deployment of `barkey-voice` (fleet registry, tunnel ingress, CNAME barkey.polyfeeds.dev, port 8520) prepared but
   NOT applied: blocked pending Paul's explicit go.
 
